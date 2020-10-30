@@ -37,11 +37,11 @@ describe('nearestCommonProto', () => {
 		expect(nearestCommonProto()).to.equal(undefined);
 	});
 	
-	it('should return undefined when objects share no common lineage (not even Object)', () => {
+	it('should return Object when objects share no common lineage', () => {
 		const a = Object.create(null);
 		const b = {};
 
-		expect(nearestCommonProto(a, b)).to.equal(undefined);
+		expect(nearestCommonProto(a, b) instanceof Object).to.equal(true);
 	});
 
 	it('should return Object for two instances of unrelated classes', () => {

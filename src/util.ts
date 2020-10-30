@@ -29,7 +29,7 @@ export const protoChain = (obj: object, currentChain: object[] = [obj]): object[
 export const nearestCommonProto = (...objs: object[]): Function => {
 	if (objs.length === 0) return undefined;
 
-	let commonProto = undefined;
+	let commonProto:any = Object;
 	const protoChains = objs.map(obj => protoChain(obj));
 
 	while (protoChains.every(protoChain => protoChain.length > 0)) {
